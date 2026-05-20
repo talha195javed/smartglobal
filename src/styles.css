@@ -65,7 +65,7 @@ nav {
   align-items: center;
   gap: 28px;
   color: #111827;
-  font-size: 12px;
+  font-size: 16px;
   flex: 1;
 }
 nav a { display: inline-flex; align-items: center; gap: 5px; }
@@ -85,6 +85,18 @@ nav a { display: inline-flex; align-items: center; gap: 5px; }
   box-shadow: 0 10px 20px rgba(16, 107, 255, 0.12);
 }
 .btn.small { min-height: 36px; padding-inline: 22px; margin-left: auto; }
+.menuToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+  margin-left: auto;
+}
 
 .hero {
   width: min(100%, var(--site-max));
@@ -165,7 +177,7 @@ nav a { display: inline-flex; align-items: center; gap: 5px; }
 .sectionPad {
   width: min(100%, var(--site-max));
   margin: 0 auto;
-  padding: 64px var(--site-pad);
+  padding: 0 var(--site-pad);
 }
 .label {
   display: inline-flex;
@@ -460,7 +472,7 @@ li svg { color: #55c66b; }
 .portrait small { color: #5b6470; margin-top: 8px; }
 
 .cta {
-  width: min(100% - 48px, 1010px);
+  width: 66% !important;
   margin: 10px auto 210px;
   border-radius: 10px;
   padding: 60px 58px 51px;
@@ -1205,8 +1217,27 @@ li svg { color: #55c66b; }
 }
 
 @media (max-width: 900px) {
-  .header { height: auto; padding-top: 24px; flex-wrap: wrap; }
-  nav { order: 3; width: 100%; flex-wrap: wrap; gap: 16px; }
+  .header { height: auto; padding: 16px 22px; flex-wrap: wrap; gap: 12px; }
+  .menuToggle { display: flex; }
+  .btn.small.headerCta { display: none; }
+  nav {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .header.menuOpen nav { display: flex; }
+  .header.menuOpen .btn.small.headerCta { display: inline-flex; margin-top: 16px; width: 100%; }
+  nav a {
+    padding: 12px 0;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--line);
+  }
+  nav a:last-child { border-bottom: none; }
   .pixels { opacity: .25; }
   .product, .services, .testimonial, .aboutHero, .who, .contactHero { grid-template-columns: 1fr; }
   .features { grid-template-columns: 1fr; gap: 34px; }

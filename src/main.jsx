@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Check, ChevronDown, CirclePlay, Crosshair, Grid2X2, Handshake, Rocket, ShieldCheck, Sparkles, UserRoundCheck } from 'lucide-react';
+import { Check, ChevronDown, CirclePlay, Crosshair, Grid2X2, Handshake, Menu, Rocket, ShieldCheck, Sparkles, UserRoundCheck, X } from 'lucide-react';
 import './styles.css';
 
 const logos = [
@@ -77,15 +77,20 @@ const solutionFeatures = [
 ];
 
 function Header() {
-  return <header className="header">
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return <header className={`header ${menuOpen ? 'menuOpen' : ''}`}>
     <a className="brand" href="/"><img src="/logos/smartglobal.png" alt="Smartglobal" /></a>
+    <button className="menuToggle" type="button" aria-label="Toggle menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((x) => !x)}>
+      {menuOpen ? <X size={22} /> : <Menu size={22} />}
+    </button>
     <nav>
-      <a href="/solutions">Services <ChevronDown size={11} /></a>
-      <a href="/about">Who we are</a>
-      <a href="/contact">Contact us</a>
-      <a href="#careers">Careers</a>
+      <a href="/solutions" onClick={() => setMenuOpen(false)}>Services <ChevronDown size={11} /></a>
+      <a href="/about" onClick={() => setMenuOpen(false)}>Who we are</a>
+      <a href="/contact" onClick={() => setMenuOpen(false)}>Contact us</a>
+      <a href="#careers" onClick={() => setMenuOpen(false)}>Careers</a>
     </nav>
-    <a className="btn small" href="#proposal">Get a proposal</a>
+    <a className="btn small headerCta" href="#proposal" onClick={() => setMenuOpen(false)}>Get a proposal</a>
   </header>;
 }
 
