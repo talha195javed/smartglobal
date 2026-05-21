@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ChevronDown, CircleArrowRight, Menu, X } from 'lucide-react';
 import { serviceTabs } from '../data';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const productLinks = [
     {
       title: "Gosmart AI",
@@ -24,6 +25,30 @@ function Header() {
     e.preventDefault();
     setServicesDropdownOpen((x) => !x);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (servicesDropdownOpen) {
+        setServicesDropdownOpen(false);
+      }
+    };
+
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+
+    if (servicesDropdownOpen) {
+      window.addEventListener('scroll', handleScroll, true);
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll, true);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [servicesDropdownOpen]);
 
   const getServiceLink = (label) => {
     if (label === "Website & Funnel Development") return "/web-funnel";
@@ -60,7 +85,7 @@ function Header() {
       {menuOpen ? <X size={22} /> : <Menu size={22} />}
     </button>
     <nav>
-      <div className="servicesDropdown">
+      <div className="servicesDropdown" ref={dropdownRef}>
         <a
           href="/solutions"
           onClick={toggleServicesDropdown}
