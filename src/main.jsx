@@ -109,10 +109,7 @@ function App() {
                 We build <span style={{ color: "#187EFD" }}>revenue-driven</span> digital <br />
                 ecosystems powered by AI
               </h1>
-            </div>
-
-            <div>
-              <p style={{ margin: 0, maxWidth: "600px" }}>
+              <p style={{ margin: 0, textAlign: "center", paddingTop: "5%", width: "100%" }}>
                 Build modern websites with ease using our powerful tools and expert guidance.
               </p>
             </div>
