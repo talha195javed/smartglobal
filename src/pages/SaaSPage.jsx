@@ -30,11 +30,12 @@ function SaaSPage() {
   return <>
     <Header />
     <main className="solutionsPage">
-      <section className="solutionHero" style={{ backgroundImage: 'url("/logos/saasbg.png")' }}>
+      <div style={{ backgroundImage: 'url("/logos/saasbg.png")',  backgroundSize: "cover", }}>
+      <section className="solutionHero ">
         <div className="heroContent" >
           <div className="heroText">
-            <h1>Build Custom<br /><span>SaaS Solutions</span></h1>
-            <p>We develop custom SaaS applications and software solutions that scale with your business. From MVP to enterprise, we build products that users love.</p>
+            <h1 style={{color:"black"}}>Websites That Turn Visitors Into<br /><span style={{color:"#8879D1"}}>Customers</span></h1>
+            <p style={{color:"#222"}}>We develop custom SaaS applications and software solutions that scale with your business. From MVP to enterprise, we build products that users love.</p>
             <a className="btn greenBtn" href="/contact">Get Free Consultation</a>
           </div>
           <div className="heroImage">
@@ -43,7 +44,7 @@ function SaaSPage() {
 
         </div>
       </section>
-
+      </div>
       <section className="problemBlock solutionContent">
         <div className="splitHeading">
           <div>

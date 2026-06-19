@@ -10,7 +10,7 @@ function SolutionsPage() {
     <main className="solutionsPage">
       <section className="solutionHero">
         <div className="solutionHeroBg" style={{ backgroundImage: 'url("/logos/solbg.png")' }} />
-        <h1>Automate Your Business with<br /><span>Intelligent AI</span> Systems</h1>
+        <h1>Automate Your Business with<br /><span style={{color: "#22A92E"}}>Intelligent AI</span> Systems</h1>
         <p>From lead handling to customer support, we build AI-powered systems that reduce manual work and help your business run 24/7.</p>
         <a className="btn greenBtn" href="/contact">Get Free Consultation</a>
       </section>
