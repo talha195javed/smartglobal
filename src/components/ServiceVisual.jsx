@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function ServiceVisual({ type }) {
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1465);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   if (type === 'growth') {
     return <div className="growthChart">
       <img src="/logos/web1.svg" alt="Gosmart AI dashboard screen" />
@@ -222,7 +231,11 @@ function ServiceVisual({ type }) {
 
   return <>
     <div className="metrics">
-      <img src="/logos/ai.svg" alt="Gosmart AI dashboard screen" />
+      <img
+        src="/logos/ai.svg"
+        alt="Gosmart AI dashboard screen"
+        style={windowWidth < 1465 ? { width: "122%" } : undefined}
+      />
     </div>
   </>;
 }

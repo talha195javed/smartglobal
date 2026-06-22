@@ -761,7 +761,7 @@ li svg { color: #55c66b; }
 }
 .portrait::after { inset: 0 0 0 0; clip-path: polygon(28% 0, 100% 0, 100% 58%, 64% 100%, 0 100%, 0 42%); }
 .portrait img { position: relative; z-index: 1; width: 100%; height: 310px; object-fit: cover; clip-path: polygon(28% 0, 100% 0, 100% 58%, 64% 100%, 0 100%, 0 42%); }
-.portrait div { position: absolute; z-index: 2; left: 28px; bottom: -8px; width: 295px; padding: 28px 34px; box-shadow: 0 12px 35px rgba(0,0,0,.04); }
+.portrait div { position: absolute; z-index: 2; left: 28px; bottom: -8px; padding: 28px 34px; box-shadow: 0 12px 35px rgba(0,0,0,.04); }
 .portrait b, .portrait small { display: block; }
 
 .cta {
@@ -1630,7 +1630,7 @@ li svg { color: #55c66b; }
   .testimonialNav { margin-top: 30px; }
   .portrait { width: 100%; margin-left: 0; }
   .portrait img { height: 280px; }
-  .portrait div { width: 100%; left: 0; bottom: -16px; }
+  .portrait div { left: 0; bottom: -16px; }
   .cta { width: 100% !important; margin: 20px auto 80px; padding: 40px 24px 30px; }
   .cta > h2 { font-size: 24px; margin-bottom: 40px; }
   .ctaCards { grid-template-columns: 1fr; gap: 32px; }
