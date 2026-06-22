@@ -1727,6 +1727,12 @@ li svg { color: #55c66b; }
   justify-content: flex-end;
 }
 
+@media (max-width: 1465px) {
+  .svgWrapper {
+  margin-top: -200px;
+    }
+}
+
 .case-padding {
   padding-top: 3% !important;
 }
